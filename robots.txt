@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mohammadmarwanbalkis-sketch.github.io/treasure-island/sitemap.xml
