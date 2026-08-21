@@ -363,10 +363,28 @@
      10. LAZY IMAGES (blur-up)
      ========================================================= */
   function lazyImages() {
-    $$('img[loading="lazy"], img.lazy').forEach(function (img) {
+    var imgs = $$('img[loading="lazy"], img.lazy');
+    imgs.forEach(function (img) {
       if (img.complete && img.naturalWidth) img.classList.add('loaded');
       else img.addEventListener('load', function () { img.classList.add('loaded'); }, { once: true });
       img.addEventListener('error', function () { img.classList.add('loaded'); }, { once: true });
+    });
+
+    /* Safety sweep. A `load` event can be missed on a slow connection, on a
+       bfcache restore, or when an image finishes between the complete check
+       and the listener being attached. This catches every one of those, then
+       stops itself once nothing is outstanding. */
+    var pending = imgs.slice();
+    var sweep = setInterval(function () {
+      pending = pending.filter(function (img) {
+        if (img.classList.contains('loaded')) return false;
+        if (img.naturalWidth) { img.classList.add('loaded'); return false; }
+        return true;
+      });
+      if (!pending.length) clearInterval(sweep);
+    }, 400);
+    window.addEventListener('pageshow', function () {
+      imgs.forEach(function (img) { if (img.naturalWidth) img.classList.add('loaded'); });
     });
   }
 

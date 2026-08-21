@@ -999,8 +999,19 @@ p{text-wrap:pretty}
 /* ---------- 25. IMG LOADING (blur-up) ---------- */
 .imgbox{position:relative;overflow:hidden;background:var(--paper-2)}
 .imgbox img{width:100%;height:100%;object-fit:cover}
-img.lazy{opacity:0;transition:opacity .7s var(--e-out),transform 1s var(--e-out)}
-img.lazy.loaded{opacity:1}
+/* A lazy image is NEVER hidden. Before it arrives it shows a soft brand-tinted
+   placeholder, so slow network = "still loading", not a blank hole in the page.
+   The fade-in is a pure enhancement: if the load event is missed, or JS is
+   blocked entirely, the photo still appears the moment its bytes land. */
+img.lazy{
+  background-color:var(--paper-2);
+  background-image:linear-gradient(120deg,rgba(0,67,104,.05),rgba(0,67,104,.11) 46%,rgba(0,67,104,.04));
+}
+img.lazy.loaded{
+  background-image:none;
+  animation:imgIn .55s var(--e-out) both;
+}
+@keyframes imgIn{from{opacity:.25}to{opacity:1}}
 
 /* parallax helper */
 .px{will-change:transform}
