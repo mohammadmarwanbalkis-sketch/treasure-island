@@ -678,13 +678,79 @@
     setInterval(refresh, 60000);
   }
 
+
+  /* =========================================================
+     21. ROYAL FILM
+     Nothing is fetched until the panel is actually on screen, and the
+     full film (with sound) only downloads when someone asks for it.
+     ========================================================= */
+  function royalFilm() {
+    $$('[data-film]').forEach(function (box) {
+      var loop = $('.rfilm-loop', box);
+      var full = $('.rfilm-full', box);
+      var btn  = $('.rfilm-play', box);
+      var started = false;
+
+      function loadSources(v) {
+        if (!v || v.dataset.loaded) return;
+        $$('source', v).forEach(function (src) {
+          if (src.dataset.src) src.src = src.dataset.src;
+        });
+        v.dataset.loaded = '1';
+        v.load();
+      }
+
+      // ambient loop: skip it entirely on reduced motion, on a metered
+      // connection, or when the visitor has asked to save data
+      var conn = navigator.connection || {};
+      var thrifty = conn.saveData === true ||
+                    /2g/.test(conn.effectiveType || '') ||
+                    REDUCED;
+
+      if (loop && !thrifty && 'IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) {
+            if (box.classList.contains('is-playing')) return;
+            if (en.isIntersecting) {
+              loadSources(loop);
+              var pr = loop.play();
+              if (pr && pr.catch) pr.catch(function () {});
+              box.classList.add('loop-on');
+            } else if (started) {
+              loop.pause();
+            }
+          });
+          started = true;
+        }, { threshold: 0.25 });
+        io.observe(box);
+      }
+
+      function openFilm() {
+        loadSources(full);
+        box.classList.add('is-playing');
+        if (loop) { try { loop.pause(); } catch (e) {} }
+        full.controls = true;
+        var pr = full.play();
+        if (pr && pr.catch) pr.catch(function () {});
+      }
+
+      if (btn) btn.addEventListener('click', openFilm);
+      if (full) {
+        full.addEventListener('ended', function () {
+          box.classList.remove('is-playing');
+          full.controls = false;
+        });
+      }
+    });
+  }
+
   /* =========================================================
      BOOT
      ========================================================= */
   function boot() {
     preloader(); marquee(); reveals(); nav(); parallax(); tilt(); magnetic();
     cursor(); counters(); pinned(); lazyImages(); gallery(); accordion();
-    dragScroll(); scrubZoom(); confettiSetup(); forms(); anchors(); year(); openNow();
+    dragScroll(); scrubZoom(); confettiSetup(); forms(); anchors(); year(); openNow(); royalFilm();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
   else boot();

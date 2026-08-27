@@ -342,6 +342,30 @@
      "@id": "https://mohammadmarwanbalkis-sketch.github.io/treasure-island/#business"
     }
    }
+  },
+  {
+   "@type": "VideoObject",
+   "@id": "https://mohammadmarwanbalkis-sketch.github.io/treasure-island/#royal-film",
+   "name": "The Royal Birthday at Treasure Island Dubai",
+   "description": "A Royal Birthday at Treasure Island, The Dubai Mall: the birthday child arrives on a red carpet lined with gold stanchions and framed portraits, walks in to a themed room, and celebrates with entertainment, a custom cake and a dedicated host.",
+   "thumbnailUrl": [
+    "https://mohammadmarwanbalkis-sketch.github.io/treasure-island/assets/img/royal-film-poster.webp"
+   ],
+   "uploadDate": "2026-08-27",
+   "duration": "PT23S",
+   "contentUrl": "https://mohammadmarwanbalkis-sketch.github.io/treasure-island/assets/video/royal-film.mp4",
+   "encodingFormat": "video/mp4",
+   "width": 720,
+   "height": 1280,
+   "isFamilyFriendly": true,
+   "inLanguage": "en-AE",
+   "publisher": {
+    "@id": "https://mohammadmarwanbalkis-sketch.github.io/treasure-island/#organization"
+   },
+   "about": {
+    "@id": "https://mohammadmarwanbalkis-sketch.github.io/treasure-island/#royal-birthday"
+   },
+   "regionsAllowed": "AE"
   }
  ]
 }
@@ -510,14 +534,15 @@
     <div class="royal-grid">
 
       <div class="royal-copy">
-        <span class="royal-eyebrow" data-reveal>Our signature celebration</span>
-        <h2 id="royal-h" class="split" data-reveal>The Royal Birthday</h2>
+        <div class="royal-crest" data-reveal><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 18l7 6 9-12 9 12 7-6-4 20H12L8 18z"/><circle cx="24" cy="9" r="2.4" fill="currentColor" stroke="none"/><path d="M14 38h20"/></svg><span>Our signature celebration</span></div>
+        <h2 id="royal-h" class="foil" data-reveal>The Royal Birthday</h2>
         <p class="lead" data-reveal>
           The birthday child arrives to a <strong>red carpet</strong> lined with gold stanchions, velvet ropes
           and framed portraits of them &mdash; then walks it like a star into a room dressed head to toe in
           their theme. Custom cake, styled tables, balloon installations, and a host who runs the whole day.
         </p>
 
+        <div class="royal-rule" aria-hidden="true"><i></i></div>
         <div class="royal-chips" data-reveal>
           <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8l4 3 5-6 5 6 4-3-2 11H5L3 8z"/></svg>Red-carpet arrival</span>
           <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-2h6l2 2h3v11H4z"/><circle cx="12" cy="13" r="3.2"/></svg>Framed portraits of the birthday child</span>
@@ -538,42 +563,61 @@
         </p>
       </div>
 
-      <div class="royal-bento" data-stagger="80">
-        <figure class="rb-1" data-reveal="scale">
-          <img class="lazy" src="assets/img/royal-carpet-tall@700.webp"
-               srcset="assets/img/royal-carpet-tall@500.webp 500w, assets/img/royal-carpet-tall@700.webp 700w, assets/img/royal-carpet-tall@900.webp 900w"
-               sizes="(max-width:940px) 46vw, 24vw"
-               alt="The Royal Birthday red carpet at Treasure Island Dubai, lined with gold stanchions and red velvet ropes"
-               width="944" height="1259" loading="lazy" decoding="async">
-        </figure>
-        <figure class="rb-2" data-reveal="scale">
-          <img class="lazy" src="assets/img/royal-balloons@700.webp"
-               srcset="assets/img/royal-balloons@500.webp 500w, assets/img/royal-balloons@700.webp 700w, assets/img/royal-balloons@900.webp 900w"
-               sizes="(max-width:940px) 46vw, 24vw"
-               alt="A Happy Birthday balloon installation above a table styled in pink and teal"
-               width="1078" height="808" loading="lazy" decoding="async">
-        </figure>
-        <figure class="rb-3" data-reveal="scale">
-          <img class="lazy" src="assets/img/royal-cake@500.webp"
-               srcset="assets/img/royal-cake@500.webp 500w, assets/img/royal-cake@700.webp 700w"
-               sizes="(max-width:940px) 30vw, 16vw"
-               alt="A custom three-tier themed birthday cake made for a Royal Birthday party"
-               width="842" height="842" loading="lazy" decoding="async">
-        </figure>
-        <figure class="rb-4" data-reveal="scale">
-          <img class="lazy" src="assets/img/royal-frames-tall@500.webp"
-               srcset="assets/img/royal-frames-tall@500.webp 500w, assets/img/royal-frames-tall@700.webp 700w"
-               sizes="(max-width:940px) 16vw, 9vw"
-               alt="Gold-framed portraits of the birthday child displayed along the red carpet"
-               width="918" height="1224" loading="lazy" decoding="async">
-        </figure>
-        <figure class="rb-5" data-reveal="scale">
-          <img class="lazy" src="assets/img/royal-table-pink@700.webp"
-               srcset="assets/img/royal-table-pink@500.webp 500w, assets/img/royal-table-pink@700.webp 700w, assets/img/royal-table-pink@900.webp 900w"
-               sizes="(max-width:940px) 46vw, 24vw"
-               alt="A long party table laid for children with themed tableware and food platters"
-               width="920" height="690" loading="lazy" decoding="async">
-        </figure>
+      <div class="royal-media">
+
+        <div class="rfilm" data-film>
+          <img class="rfilm-poster" src="assets/img/royal-film-poster@480.webp"
+               srcset="assets/img/royal-film-poster@480.webp 480w, assets/img/royal-film-poster.webp 720w"
+               sizes="(max-width:620px) 80vw, 24vw"
+               alt="A Royal Birthday arrival on the red carpet at Treasure Island Dubai"
+               width="720" height="1280" loading="lazy" decoding="async">
+
+          <video class="rfilm-loop" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1">
+            <source data-src="assets/video/royal-loop.mp4" type="video/mp4">
+          </video>
+
+          <video class="rfilm-full" playsinline preload="none"
+                 poster="assets/img/royal-film-poster.webp">
+            <source data-src="assets/video/royal-film.mp4" type="video/mp4">
+            Your browser cannot play this video.
+          </video>
+
+          <i class="c c1"></i><i class="c c2"></i><i class="c c3"></i><i class="c c4"></i>
+
+          <button class="rfilm-play" type="button" aria-label="Play the Royal Birthday film">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5z"/></svg>
+          </button>
+
+          <div class="rfilm-cap"><b>Watch</b>A Royal Birthday, start to finish</div>
+        </div>
+
+        <div class="royal-stills" data-stagger="70">
+          <figure data-reveal="scale">
+            <img class="lazy" src="assets/img/royal-balloons@500.webp"
+                 srcset="assets/img/royal-balloons@500.webp 500w, assets/img/royal-balloons@700.webp 700w"
+                 sizes="(max-width:620px) 45vw, 16vw"
+                 alt="A balloon installation built to the party theme" width="1078" height="808" loading="lazy" decoding="async">
+          </figure>
+          <figure data-reveal="scale">
+            <img class="lazy" src="assets/img/royal-cake@500.webp"
+                 srcset="assets/img/royal-cake@500.webp 500w, assets/img/royal-cake@700.webp 700w"
+                 sizes="(max-width:620px) 45vw, 16vw"
+                 alt="A custom themed birthday cake" width="842" height="842" loading="lazy" decoding="async">
+          </figure>
+          <figure data-reveal="scale">
+            <img class="lazy" src="assets/img/royal-frames-tall@500.webp"
+                 srcset="assets/img/royal-frames-tall@500.webp 500w, assets/img/royal-frames-tall@700.webp 700w"
+                 sizes="(max-width:620px) 45vw, 16vw"
+                 alt="Gold-framed portraits of the birthday child along the red carpet" width="918" height="1224" loading="lazy" decoding="async">
+          </figure>
+          <figure data-reveal="scale">
+            <img class="lazy" src="assets/img/royal-table-pink@500.webp"
+                 srcset="assets/img/royal-table-pink@500.webp 500w, assets/img/royal-table-pink@700.webp 700w"
+                 sizes="(max-width:620px) 45vw, 16vw"
+                 alt="A party table styled and laid for the children" width="920" height="690" loading="lazy" decoding="async">
+          </figure>
+        </div>
+
       </div>
 
     </div>
