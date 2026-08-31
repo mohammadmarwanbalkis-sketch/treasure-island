@@ -1560,3 +1560,33 @@ img.lazy.loaded{
   .royal-wall > *:last-child{grid-column:span 2 !important}
   .royal-wall figcaption{font-size:.7rem;padding:1.1rem .6rem .5rem}
 }
+
+/* ---------- 38. FIXES FOUND IN MOBILE REVIEW ---------- */
+
+/* .section--navy turns every heading white, but the feature cards inside those
+   sections have a WHITE card background — so all six house rules on the play
+   page and all eight party add-ons were invisible white-on-white. */
+.section--navy .feat h3,
+.section--navy .card h3,
+.section--navy .pack h3{color:var(--navy)}
+.section--navy .feat p{color:var(--ink-55)}
+
+@media(max-width:640px){
+  /* footer and inline links were 23-25px tall — too small to tap reliably */
+  .footer a{display:inline-block;padding-block:.42rem}
+  .foot-grid a{padding-block:.5rem}
+  .crumbs a{padding-block:.3rem}
+
+  /* 11px uppercase labels are legible on a laptop, less so on a phone */
+  .royal-crest span{font-size:.72rem;letter-spacing:.18em}
+  .tkt-tag,.zone-tag{font-size:.66rem}
+
+  /* house rules / add-ons two-up: six or eight stacked cards is a long scroll */
+  .section--navy .grid.g-3,
+  .section--navy .grid.g-4{grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem}
+  .section--navy .feat{padding:.9rem .8rem}
+  .section--navy .feat h3{font-size:.98rem}
+  .section--navy .feat p{font-size:.8rem;line-height:1.45}
+  .section--navy .feat-ico{width:36px;height:36px}
+  .section--navy .feat-ico svg{width:18px;height:18px}
+}
