@@ -1604,29 +1604,32 @@ img.lazy.loaded{
 /* film left, copy right, both bottoming out together */
 .royal-stage{
   position:relative;z-index:2;
-  display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1fr);
-  gap:clamp(1.8rem,4vw,4.4rem);align-items:center;
+  display:grid;
+  /* the film is 9:16, so a proportional column made it tower over the copy and
+     left dead space above and below the text. Cap it instead. */
+  grid-template-columns:clamp(224px,21vw,302px) minmax(0,1fr);
+  gap:clamp(1.6rem,3.4vw,3.6rem);align-items:center;
 }
-.royal-film-col{margin:0;position:relative;display:flex;flex-direction:column;gap:.9rem}
+.royal-film-col{margin:0;position:relative;display:flex;flex-direction:column;gap:.7rem}
 .royal-film-col::before{           /* warm glow behind the frame */
   content:"";position:absolute;inset:-8% -12% 2%;z-index:0;
   background:radial-gradient(60% 50% at 50% 45%,rgba(255,186,26,.22),transparent 70%);
   filter:blur(24px);
 }
-.royal-film-col .rfilm{position:relative;z-index:1;width:100%;max-width:none}
+.royal-film-col .rfilm{position:relative;z-index:1;width:100%}
 
 /* a gallery plate under the film */
 .royal-plate{
   position:relative;z-index:1;text-align:center;
-  padding:.7rem .9rem;border:1px solid rgba(255,186,26,.3);border-radius:var(--r-sm);
+  padding:.5rem .8rem;border:1px solid rgba(255,186,26,.3);border-radius:var(--r-sm);
   background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
 }
 .royal-plate b{
   display:block;font-family:var(--display);font-weight:600;color:var(--gold);
-  font-size:.95rem;letter-spacing:.04em;
+  font-size:.88rem;letter-spacing:.04em;
 }
 .royal-plate span{
-  display:block;margin-top:.14rem;font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;
+  display:block;margin-top:.1rem;font-size:.64rem;letter-spacing:.11em;text-transform:uppercase;
   color:rgba(255,255,255,.5);
 }
 
