@@ -31,7 +31,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=5f51ee45">
+<link rel="stylesheet" href="assets/css/style.css?v=843ebfcc">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -480,67 +480,88 @@
   </div>
 </section>
 <!-- ============ ROYAL BIRTHDAY ============ -->
-<section class="royal" id="royal" aria-labelledby="royal-h">
+<section class="royal royal--feature" id="royal" aria-labelledby="royal-h">
+  <span class="royal-watermark" aria-hidden="true">
+    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 18l7 6 9-12 9 12 7-6-4 20H12L8 18z"/><circle cx="24" cy="9" r="2.4"/><path d="M14 38h20"/></svg>
+  </span>
+
   <div class="shell">
-    <div class="royal-filmrow">
-      <div class="rfilm" data-film>
-        <img class="rfilm-poster" src="assets/img/royal-film-poster@480.webp"
-             srcset="assets/img/royal-film-poster@480.webp 480w, assets/img/royal-film-poster.webp 720w"
-             sizes="(max-width:820px) 70vw, 26vw"
-             alt="A Royal Birthday arrival on the red carpet at Treasure Island Dubai"
-             width="720" height="1280" loading="lazy" decoding="async">
-        <video class="rfilm-loop" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1">
-          <source data-src="assets/video/royal-loop.mp4" type="video/mp4">
-        </video>
-        <video class="rfilm-full" playsinline preload="none" poster="assets/img/royal-film-poster.webp">
-          <source data-src="assets/video/royal-film.mp4" type="video/mp4">
-          Your browser cannot play this video.
-        </video>
-        <i class="c c1"></i><i class="c c2"></i><i class="c c3"></i><i class="c c4"></i>
-        <button class="rfilm-play" type="button" aria-label="Play the Royal Birthday film">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5z"/></svg>
-        </button>
-        <div class="rfilm-cap"><b>Watch</b>A Royal Birthday, start to finish</div>
-      </div>
-      <div>
+
+    <div class="royal-stage">
+      <figure class="royal-film-col" data-reveal="scale">
+        <div class="rfilm" data-film>
+          <img class="rfilm-poster" src="assets/img/royal-film-poster@480.webp"
+               srcset="assets/img/royal-film-poster@480.webp 480w, assets/img/royal-film-poster.webp 720w"
+               sizes="(max-width:820px) 78vw, 30vw"
+               alt="A Royal Birthday arrival on the red carpet at Treasure Island Dubai"
+               width="720" height="1280" loading="lazy" decoding="async">
+          <video class="rfilm-loop" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1">
+            <source data-src="assets/video/royal-loop.mp4" type="video/mp4">
+          </video>
+          <video class="rfilm-full" playsinline preload="none" poster="assets/img/royal-film-poster.webp">
+            <source data-src="assets/video/royal-film.mp4" type="video/mp4">
+            Your browser cannot play this video.
+          </video>
+          <i class="c c1"></i><i class="c c2"></i><i class="c c3"></i><i class="c c4"></i>
+          <button class="rfilm-play" type="button" aria-label="Play the Royal Birthday film">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5z"/></svg>
+          </button>
+          <div class="rfilm-cap"><b>Watch</b>A Royal Birthday, start to finish</div>
+        </div>
+        <figcaption class="royal-plate">
+          <b>The Royal Birthday</b>
+          <span>Filmed at Treasure Island &middot; The Dubai Mall</span>
+        </figcaption>
+      </figure>
+
+      <div class="royal-copy-col">
         <div class="royal-crest" data-reveal><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 18l7 6 9-12 9 12 7-6-4 20H12L8 18z"/><circle cx="24" cy="9" r="2.4" fill="currentColor" stroke="none"/><path d="M14 38h20"/></svg><span>Our signature celebration</span></div>
         <h2 id="royal-h" class="foil" data-reveal>The Royal Birthday</h2>
         <div class="royal-rule" aria-hidden="true"><i></i></div>
+
         <p class="lead" data-reveal>
-        This is the one we are known for. The birthday child arrives to a red carpet rolled out at the
-        entrance, lined with gold stanchions, velvet ropes and their own portraits in gold frames. They walk
-        it, they are announced, and they step into a room dressed head to toe in the theme they chose &mdash;
-        balloon installations, a themed backdrop, styled tables, and a custom cake waiting for its moment.
-      </p>
-        <p class="lead" data-reveal style="margin-top:.9rem">
-        Our crew runs the entire day: the welcome, the games, the cake, the photographs and the clean-up.
-        Parents are guests at their own child&rsquo;s party.
-      </p>
+          This is the one we are known for. The birthday child arrives to a red carpet rolled out at the
+          entrance, lined with gold stanchions, velvet ropes and their own portraits in gold frames. They
+          walk it, they are announced, and they step into a room dressed head to toe in the theme they
+          chose.
+        </p>
+        <p class="lead" data-reveal>
+          Our crew runs the entire day &mdash; the welcome, the games, the cake, the photographs and the
+          clean-up. Parents are guests at their own child&rsquo;s party.
+        </p>
+
+        <div class="royal-marks" data-stagger="70">
+          <div data-reveal><b>Red carpet</b><span>Arrival &amp; announcement</span></div>
+          <div data-reveal><b>Gold frames</b><span>Portraits along the walk</span></div>
+          <div data-reveal><b>Their theme</b><span>Backdrop, cake &amp; tables</span></div>
+        </div>
+
+        <div class="btn-row" data-reveal>
+          <a class="btn btn--gold btn--lg" href="#enquire" data-magnet="0.28">Enquire about a Royal Birthday <svg class="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn--light btn--lg" href="https://wa.me/971504738452?text=Hi%20Treasure%20Island!%20I'd%20like%20to%20ask%20about%20the%20Royal%20Birthday." target="_blank" rel="noopener" data-magnet="0.2">Ask on WhatsApp</a>
+        </div>
       </div>
     </div>
-    </div>
 
-    <ul class="royal-included" data-stagger="60" style="margin-top:clamp(1.8rem,3vw,2.6rem)">
-        <li data-reveal><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><div><b>A red-carpet arrival</b><span>Gold stanchions, velvet ropes and the carpet rolled out from the entrance.</span></div></li>
-        <li data-reveal><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><div><b>Framed portraits of the birthday child</b><span>Their photographs displayed in gold frames along the walk in.</span></div></li>
-        <li data-reveal><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><div><b>A themed backdrop</b><span>Built to your theme, and the best photo spot of the day.</span></div></li>
-        <li data-reveal><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><div><b>Balloon installations</b><span>Arches, garlands and centrepieces in your colours.</span></div></li>
-        <li data-reveal><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><div><b>A custom cake</b><span>Made to the theme, with the cake moment run by our host.</span></div></li>
-        <li data-reveal><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><div><b>Styled tables and tableware</b><span>Cloths, plates, napkins and favours matched to the theme.</span></div></li>
-        <li data-reveal><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><div><b>Food for children and adults</b><span>Kids&rsquo; platters and a grown-up spread from Le Gourmet.</span></div></li>
-        <li data-reveal><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><div><b>A dedicated host and games</b><span>Someone running the whole day so you do not have to.</span></div></li>
-        <li data-reveal><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><div><b>Full access to every play zone</b><span>Your guests have the run of all nine zones for the session.</span></div></li>
+    <div class="royal-orn" aria-hidden="true"><i></i><b>What every Royal Birthday includes</b><i></i></div>
+
+    <ul class="royal-decree" data-stagger="55">
+        <li data-reveal><span class="rn">01</span><div><b>A red-carpet arrival</b><span>Gold stanchions, velvet ropes and the carpet rolled out from the entrance.</span></div></li>
+        <li data-reveal><span class="rn">02</span><div><b>Framed portraits of the child</b><span>Their photographs displayed in gold frames along the walk in.</span></div></li>
+        <li data-reveal><span class="rn">03</span><div><b>A themed backdrop</b><span>Built to your theme, and the best photo spot of the day.</span></div></li>
+        <li data-reveal><span class="rn">04</span><div><b>Balloon installations</b><span>Arches, garlands and centrepieces in your colours.</span></div></li>
+        <li data-reveal><span class="rn">05</span><div><b>A custom cake</b><span>Made to the theme, with the cake moment run by our host.</span></div></li>
+        <li data-reveal><span class="rn">06</span><div><b>Styled tables and tableware</b><span>Cloths, plates, napkins and favours matched to the theme.</span></div></li>
+        <li data-reveal><span class="rn">07</span><div><b>Food for children and adults</b><span>Kids&rsquo; platters and a grown-up spread from Le Gourmet.</span></div></li>
+        <li data-reveal><span class="rn">08</span><div><b>A dedicated host and games</b><span>Someone running the whole day so you do not have to.</span></div></li>
+        <li data-reveal><span class="rn">09</span><div><b>The run of all nine zones</b><span>Your guests have every play zone for the whole session.</span></div></li>
     </ul>
 
-    <div class="btn-row" data-reveal style="margin-top:clamp(1.6rem,2.6vw,2.2rem)">
-      <a class="btn btn--gold btn--lg" href="#enquire" data-magnet="0.28">Enquire about a Royal Birthday <svg class="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a class="btn btn--light btn--lg" href="https://wa.me/971504738452?text=Hi%20Treasure%20Island!%20I'd%20like%20to%20ask%20about%20the%20Royal%20Birthday." target="_blank" rel="noopener" data-magnet="0.2">Ask on WhatsApp</a>
-    </div>
-
-    <p class="royal-note" data-reveal style="margin-top:1.1rem">
+    <p class="royal-note" data-reveal>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
       Every Royal Birthday is quoted to your theme, guest count and date. Send us the date and we will come back with a full plan.
     </p>
+
   </div>
 
   <div class="shell" style="margin-top:clamp(2rem,3.6vw,3.2rem)">
@@ -608,8 +629,6 @@
              width="924" height="693" loading="lazy" decoding="async">
         <figcaption>Grazing tables and dessert spreads</figcaption>
       </figure>
-    </div>
-      </div>
     </div>
   </div>
 </section>

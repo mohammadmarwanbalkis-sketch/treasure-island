@@ -1590,3 +1590,106 @@ img.lazy.loaded{
   .section--navy .feat-ico{width:36px;height:36px}
   .section--navy .feat-ico svg{width:18px;height:18px}
 }
+
+/* ---------- 39. ROYAL FEATURE (birthdays) ---------- */
+.royal--feature{padding-block:clamp(3.4rem,6.5vw,6.4rem)}
+
+/* a crown watermark, very faint, so the band has depth rather than flat navy */
+.royal-watermark{
+  position:absolute;z-index:0;pointer-events:none;
+  right:-4vw;top:6%;width:min(46vw,560px);color:var(--gold);opacity:.045;
+}
+.royal-watermark svg{width:100%;height:auto}
+
+/* film left, copy right, both bottoming out together */
+.royal-stage{
+  position:relative;z-index:2;
+  display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1fr);
+  gap:clamp(1.8rem,4vw,4.4rem);align-items:center;
+}
+.royal-film-col{margin:0;position:relative;display:flex;flex-direction:column;gap:.9rem}
+.royal-film-col::before{           /* warm glow behind the frame */
+  content:"";position:absolute;inset:-8% -12% 2%;z-index:0;
+  background:radial-gradient(60% 50% at 50% 45%,rgba(255,186,26,.22),transparent 70%);
+  filter:blur(24px);
+}
+.royal-film-col .rfilm{position:relative;z-index:1;width:100%;max-width:none}
+
+/* a gallery plate under the film */
+.royal-plate{
+  position:relative;z-index:1;text-align:center;
+  padding:.7rem .9rem;border:1px solid rgba(255,186,26,.3);border-radius:var(--r-sm);
+  background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
+}
+.royal-plate b{
+  display:block;font-family:var(--display);font-weight:600;color:var(--gold);
+  font-size:.95rem;letter-spacing:.04em;
+}
+.royal-plate span{
+  display:block;margin-top:.14rem;font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;
+  color:rgba(255,255,255,.5);
+}
+
+.royal-copy-col .lead + .lead{margin-top:.85rem}
+.royal-copy-col .btn-row{margin-top:1.6rem}
+
+/* three gold-ruled marks: the hooks, before the full list */
+.royal-marks{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:clamp(.7rem,1.5vw,1.4rem);margin-top:1.5rem;
+}
+.royal-marks > div{padding-top:.75rem;border-top:1px solid rgba(255,186,26,.34)}
+.royal-marks b{
+  display:block;font-family:var(--display);font-weight:600;color:#fff;
+  font-size:1.02rem;line-height:1.2;margin-bottom:.12rem;
+}
+.royal-marks span{display:block;font-size:.8rem;color:rgba(255,255,255,.58);line-height:1.4}
+
+/* ornamental divider with a title set into it */
+.royal-orn{
+  position:relative;z-index:2;
+  display:flex;align-items:center;gap:clamp(.9rem,2vw,1.6rem);
+  margin:clamp(2.4rem,4.5vw,4rem) 0 clamp(1.4rem,2.4vw,2rem);
+}
+.royal-orn i{height:1px;flex:1;background:linear-gradient(90deg,transparent,rgba(255,186,26,.45),transparent)}
+.royal-orn b{
+  font-size:.72rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(255,222,150,.92);white-space:nowrap;
+}
+
+/* the inclusion list, set like a decree: gold numerals over hairlines */
+.royal-decree{
+  position:relative;z-index:2;
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:0 clamp(1.4rem,3vw,3rem);
+}
+.royal-decree li{
+  display:flex;gap:.85rem;align-items:flex-start;
+  padding:1rem 0;border-top:1px solid rgba(255,255,255,.1);
+}
+.royal-decree .rn{
+  font-family:var(--display);font-weight:600;color:var(--gold);
+  font-size:.9rem;letter-spacing:.06em;flex:none;padding-top:.1rem;min-width:1.9rem;
+}
+.royal-decree b{
+  display:block;color:#fff;font-size:1rem;line-height:1.25;margin-bottom:.18rem;
+  font-family:var(--display);font-weight:500;letter-spacing:-.005em;
+}
+.royal-decree span{display:block;color:rgba(255,255,255,.6);font-size:.85rem;line-height:1.5}
+
+.royal--feature .royal-note{position:relative;z-index:2;margin-top:clamp(1.6rem,2.6vw,2.2rem)}
+
+@media(max-width:980px){
+  .royal-stage{grid-template-columns:1fr;gap:1.8rem}
+  .royal-film-col{max-width:360px;margin-inline:auto}
+  .royal-decree{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:640px){
+  .royal-watermark{width:70vw;right:-14vw;opacity:.035}
+  .royal-marks{grid-template-columns:1fr;gap:.55rem}
+  .royal-marks > div{padding-top:.55rem}
+  .royal-decree{grid-template-columns:1fr}
+  .royal-decree li{padding:.8rem 0}
+  .royal-film-col{max-width:290px}
+  .royal-orn b{font-size:.64rem;letter-spacing:.16em;white-space:normal;text-align:center}
+}
