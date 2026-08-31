@@ -313,14 +313,23 @@
         io.unobserve(el);
         var end = parseFloat(el.getAttribute('data-count'));
         var suffix = el.getAttribute('data-suffix') || '';
-        var dur = 1700, t0 = performance.now();
+        var dur = 1700, t0 = null;
         var dec = (end % 1 !== 0) ? 1 : 0;
-        (function step(now) {
+        var fmt = function (v) {
+          return v.toFixed(dec).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + suffix;
+        };
+        // The real figure goes in first. The count-up then plays over the top,
+        // so a throttled or paused frame loop can never strand the number on 0.
+        el.textContent = fmt(end);
+        function step(now) {
+          if (t0 === null) t0 = now;
           var p = clamp((now - t0) / dur, 0, 1);
           var e = 1 - Math.pow(1 - p, 3);
-          el.textContent = (end * e).toFixed(dec).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + suffix;
+          el.textContent = fmt(end * e);
           if (p < 1) requestAnimationFrame(step);
-        })(t0);
+        }
+        requestAnimationFrame(step);
+        setTimeout(function () { el.textContent = fmt(end); }, dur + 900);
       });
     }, { threshold: 0.45 });
     els.forEach(function (e) { io.observe(e); });

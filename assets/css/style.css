@@ -169,7 +169,7 @@ p{text-wrap:pretty}
   position:relative;display:inline-flex;align-items:center;justify-content:center;
   gap:.6rem;padding:1.02em 1.85em;border-radius:var(--r-pill);
   font-family:var(--display);font-weight:600;font-size:1rem;letter-spacing:.005em;
-  line-height:1;white-space:nowrap;isolation:isolate;overflow:hidden;
+  line-height:1.05;white-space:nowrap;isolation:isolate;overflow:hidden;
   transition:transform .4s var(--e-back),box-shadow .4s var(--e-out),color .3s,background-color .3s;
   will-change:transform;
 }
@@ -1441,3 +1441,122 @@ img.lazy.loaded{
 /* keep the film cinematic, not overwhelming, when it sits beside body copy */
 .royal-filmrow .rfilm{width:100%;max-width:380px;justify-self:center}
 @media(max-width:820px){.royal-filmrow .rfilm{max-width:320px}}
+
+
+/* ---------- 36. MOBILE: SHORTER, TIGHTER, STRAIGHT TO THE POINT ---------- */
+@media(max-width:640px){
+  :root{--sec-y:clamp(2.2rem,7vw,3.1rem)}
+
+  /* hero: floating cards sat outside the photo's edge — pull them in line */
+  .hv-card--1{left:10px;top:6%}
+  .hv-card--2{right:10px;bottom:6%;left:auto}
+
+  /* nine zones as a compact two-up grid instead of nine full-width cards */
+  .zgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.55rem}
+  .zgrid .zone{min-height:152px}
+  .zgrid .zone p{display:none}
+  .zgrid .zone h3{font-size:1.02rem;line-height:1.15}
+  .zgrid .zone-tag{margin-bottom:.4rem;font-size:.56rem;padding:.22rem .5rem}
+  .zgrid .zone-body{padding:.7rem .75rem}
+  .zgrid .zone-num{font-size:1.35rem;top:.55rem;right:.65rem}
+  .zgrid > *:nth-child(9){grid-column:span 2}
+
+  /* the four "what we do" cards go two-up as well */
+  .g-4{grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem}
+  .g-4 .feat{padding:.95rem .85rem}
+  .g-4 .feat h3{font-size:1rem}
+  .g-4 .feat p{font-size:.82rem;line-height:1.45}
+  .g-4 .feat-ico{width:38px;height:38px}
+  .g-4 .feat-ico svg{width:19px;height:19px}
+
+  /* royal: the film carries the section on mobile — the stills repeat on the
+     birthdays page, and six chips is more list than headline */
+  .royal-stills{display:none}
+  .royal-chips span:nth-child(n+5){display:none}
+  .royal-chips{gap:.4rem}
+  .rfilm{max-width:290px}
+  .royal .lead{font-size:1rem}
+
+  /* welcome: one clean image rather than a stacked collage */
+  .collage{aspect-ratio:4/3}
+  .collage .c2,.collage .c3{display:none}
+  .collage .c1{width:100%;height:100%;top:0;left:0}
+  .collage-badge{bottom:6%;left:6%}
+
+  /* buttons stack full width and stay identical in height */
+  .btn-row{gap:.6rem}
+  .btn-row .btn{width:100%;flex:1 1 100%}
+  .btn--lg{padding:1em 1.5em}
+}
+@media(max-width:400px){
+  .zgrid .zone{min-height:136px}
+  .zgrid .zone h3{font-size:.94rem}
+}
+
+/* mobile, round two — the page should read as a pitch, not a brochure */
+@media(max-width:640px){
+  :root{--sec-y:clamp(1.9rem,6vw,2.7rem)}
+
+  /* the landing hero already states 9 zones / ages / hours, so its stats band
+     is the same facts twice. Scoped by id — other pages need theirs. */
+  #quickstats{display:none}
+
+  .hero{padding-bottom:2.2rem}
+  .hero .lead{font-size:1rem;line-height:1.55}
+  .hero-stats{gap:.9rem;margin-top:1.2rem;padding-top:1.2rem}
+
+  /* location block: tighter rows, shorter map */
+  .contact-grid{gap:1.2rem}
+  .info-card{margin-top:1.2rem !important}
+  .info-row{padding:.7rem 0}
+  .info-row i{width:36px;height:36px}
+  .info-row i svg{width:18px;height:18px}
+  .map-wrap{aspect-ratio:16/10;max-height:190px}
+
+  /* welcome + faq breathing room */
+  .checks{gap:.55rem;margin-top:1rem}
+  .checks li{font-size:.92rem}
+  .acc-q{padding:.85rem .9rem;font-size:.95rem}
+  .acc-a{padding-inline:.9rem}
+  .sec-head .lead{margin-top:.8rem}
+  .cta-band{padding-block:2.2rem}
+}
+
+/* mobile, final pass */
+@media(max-width:640px){
+  /* three chips read as a headline; six read as a list */
+  .royal-chips span:nth-child(n+4){display:none}
+  .rfilm{max-width:262px}
+
+  /* the welcome tick-list repeats the four service cards directly below it */
+  #welcome .checks{display:none}
+
+  /* location: the Instagram handle is already in the footer and the floating
+     button, so the row is a third copy of it */
+  #visit .info-row:nth-child(4){display:none}
+  #visit .info-row{padding:.6rem 0}
+  #visit .sec-head .lead{font-size:.95rem}
+}
+
+/* ---------- 37. DESKTOP TIGHTENING ---------- */
+@media(min-width:641px){
+  :root{--sec-y:clamp(2.9rem,5vw,5.2rem)}
+  .cta-band{padding-block:clamp(2.4rem,4vw,3.6rem)}
+  /* the FAQ is a collapsed list — it does not need a full section's air */
+  #faq .sec-head{margin-bottom:.4rem}
+  #faq .acc{margin-top:1.2rem !important}
+  .acc-q{padding-block:.95rem}
+  .zgrid .zone{min-height:clamp(176px,16.5vw,212px)}
+}
+
+/* .shell-narrow was referenced but never defined — define it, and keep the FAQ
+   answering column readable while its section edge matches everything else */
+.shell-narrow{width:min(980px,100% - (var(--gut) * 2));margin-inline:auto}
+#faq .acc{max-width:920px;margin-inline:auto}
+
+/* the royal wall stays two-up on phones — nine full-width photos is a scroll marathon */
+@media(max-width:520px){
+  .royal-wall{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .royal-wall > *:last-child{grid-column:span 2 !important}
+  .royal-wall figcaption{font-size:.7rem;padding:1.1rem .6rem .5rem}
+}
