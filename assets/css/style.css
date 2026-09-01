@@ -1696,3 +1696,115 @@ img.lazy.loaded{
   .royal-film-col{max-width:290px}
   .royal-orn b{font-size:.64rem;letter-spacing:.16em;white-space:normal;text-align:center}
 }
+
+/* ---------- 40. SERVICE BLOCKS (landing page) ----------
+   Mobile first: media, then title, two lines, points, one button.
+   From 900px up it becomes a two-column row that alternates side.      */
+.svc-block{position:relative;padding-block:clamp(1.75rem,4vw,3.7rem)}
+.svc-block--paper{background:var(--paper)}
+.svc-block--dark{
+  background:
+    radial-gradient(80% 110% at 88% 0%,rgba(255,186,26,.14),transparent 58%),
+    linear-gradient(168deg,#02283e,#01202f 60%,#032b42);
+  color:#fff;
+}
+.svc-block--dark h2{color:#fff}
+.svc-block--dark .lead{color:rgba(255,255,255,.78)}
+.svc-block + .svc-block:not(.svc-block--dark):not(.svc-block--paper)::before{
+  content:"";position:absolute;inset-inline:var(--gut);top:0;height:1px;background:var(--line-2);
+}
+
+.svc-inner{display:grid;gap:clamp(.9rem,2.2vw,2rem);align-items:center;
+  grid-template-areas:"media" "head" "rest"}
+.svc-media{grid-area:media}
+.svc-head{grid-area:head}
+.svc-rest{grid-area:rest}
+
+/* On a phone a 9:16 film would push the copy a whole screen down, so the
+   title sits beside it and the rest runs full width underneath. */
+@media(max-width:899px){
+  .svc-block--film .svc-inner{
+    grid-template-columns:44% minmax(0,1fr);
+    grid-template-areas:"media head" "rest rest";
+    column-gap:.9rem;row-gap:.85rem;align-items:center;
+  }
+  .svc-block--film .svc-media--film{width:100%;margin:0}
+  .svc-block--film .svc-head h2{font-size:clamp(1.35rem,6vw,1.9rem)}
+}
+
+/* ---- media ---- */
+.svc-figure{
+  position:relative;margin:0;border-radius:var(--r-lg);overflow:hidden;
+  background:var(--paper-2);box-shadow:var(--sh-2);
+}
+.svc-figure img{width:100%;height:100%;object-fit:cover;display:block}
+.svc-block--dark .svc-figure{box-shadow:0 24px 54px -28px rgba(0,0,0,.8)}
+/* vertical films keep their full frame and stay a sensible size on a phone */
+.svc-media--film{width:min(62%,240px);margin-inline:auto}
+@media(min-width:560px){.svc-media--film{width:min(46%,260px)}}
+
+/* ---- copy ---- */
+.svc-eyebrow{
+  display:inline-flex;align-items:center;gap:.5rem;margin-bottom:.5rem;
+  font-size:var(--fs-micro);font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gold-600);
+}
+.svc-block--dark .svc-eyebrow{color:var(--gold)}
+.svc-eyebrow i{width:22px;height:1px;background:currentColor;display:inline-block}
+.svc-body h2{font-size:clamp(1.55rem,5.4vw,2.5rem);line-height:1.05;letter-spacing:-.025em;margin-bottom:.5rem}
+.svc-body .lead{margin:0;font-size:clamp(.95rem,3.6vw,1.08rem);line-height:1.55;max-width:46ch}
+
+.svc-points{display:flex;flex-wrap:wrap;gap:.4rem;margin:.95rem 0 1.1rem}
+.svc-points li{
+  display:inline-flex;align-items:center;gap:.4rem;
+  padding:.4rem .78rem;border-radius:var(--r-pill);
+  font-size:.8rem;font-weight:600;line-height:1;
+  background:var(--gold-50);color:var(--navy);box-shadow:inset 0 0 0 1px rgba(255,186,26,.32);
+}
+.svc-block--dark .svc-points li{
+  background:rgba(255,255,255,.07);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,186,26,.3);
+}
+.svc-points li::before{
+  content:"";width:5px;height:5px;border-radius:50%;background:var(--gold-600);flex:none;
+}
+.svc-block--dark .svc-points li::before{background:var(--gold)}
+
+.svc-cta{display:flex;flex-wrap:wrap;gap:.55rem}
+.svc-cta .btn{flex:1 1 auto}
+
+/* a highlighted fact (price / timing) for blocks that have one */
+.svc-fact{
+  display:inline-flex;align-items:baseline;gap:.45rem;margin-bottom:.85rem;
+  padding:.42rem .85rem;border-radius:var(--r-pill);
+  background:var(--navy);color:#fff;font-size:.84rem;font-weight:600;
+}
+.svc-fact b{font-family:var(--display);font-size:1.05rem;color:var(--gold);line-height:1}
+.svc-block--dark .svc-fact{background:rgba(255,255,255,.1)}
+
+@media(min-width:900px){
+  .svc-inner{grid-template-columns:minmax(0,.85fr) minmax(0,1fr);
+    grid-template-areas:"media head" "media rest";
+    column-gap:clamp(2rem,4vw,4rem);row-gap:0;align-items:center}
+  /* head and rest are separate grid rows — pull them together around the
+     vertical centre instead of letting each row centre on its own */
+  .svc-head{align-self:end}
+  .svc-rest{align-self:start;margin-top:.55rem}
+  .svc-block--rev .svc-inner{grid-template-areas:"head media" "rest media"}
+  
+  .svc-media--film{width:min(100%,300px)}
+  .svc-cta .btn{flex:0 0 auto}
+}
+
+@media(max-width:640px){
+  .svc-block{padding-block:1.75rem}
+  .svc-body .lead,.svc-rest .lead{font-size:.95rem;line-height:1.5}
+  .svc-points{margin:.75rem 0 .9rem}
+}
+
+@media(max-width:640px){
+  /* photo blocks: a slightly wider crop keeps each block a screen-and-a-bit */
+  .svc-block:not(.svc-block--film) .svc-figure{aspect-ratio:16/10 !important}
+  /* location block on a phone */
+  #visit .map-wrap{max-height:150px}
+  #visit .sec-head h2{font-size:1.5rem}
+}
