@@ -607,15 +607,28 @@
   </div>
 </section>
 
-<section class="section svc-block" id="playgroup" aria-labelledby="playgroup-h">
+<section class="section svc-block svc-block--film" id="playgroup" aria-labelledby="playgroup-h">
   <div class="shell">
     <div class="svc-inner">
-      <div class="svc-media">
-          <figure class="svc-figure" style="aspect-ratio:4/3">
-            <img class="lazy" src="assets/img/create-learn-01@500.webp" srcset="assets/img/create-learn-01@500.webp 500w, assets/img/create-learn-01@700.webp 700w, assets/img/create-learn-01@900.webp 900w"
-                 sizes="(max-width:900px) 92vw, 40vw"
-                 alt="The craft booth set up for a playgroup session" width="1200" height="900" loading="lazy" decoding="async">
-          </figure>
+      <div class="svc-media svc-media--film">
+          <div class="rfilm" data-film>
+            <img class="rfilm-poster" src="assets/img/playgroup-poster@480.webp"
+                 srcset="assets/img/playgroup-poster@480.webp 480w, assets/img/playgroup-poster.webp 720w"
+                 sizes="(max-width:900px) 62vw, 21vw"
+                 alt="A Treasure Island Playgroup Program session" width="720" height="1280" loading="lazy" decoding="async">
+            <video class="rfilm-loop" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1">
+              <source data-src="assets/video/playgroup-loop.mp4" type="video/mp4">
+            </video>
+            <video class="rfilm-full" playsinline preload="none" poster="assets/img/playgroup-poster.webp">
+              <source data-src="assets/video/playgroup-film.mp4" type="video/mp4">
+              Your browser cannot play this video.
+            </video>
+            <i class="c c1"></i><i class="c c2"></i><i class="c c3"></i><i class="c c4"></i>
+            <button class="rfilm-play" type="button" aria-label="Play the Playgroup Program film">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5z"/></svg>
+            </button>
+            <div class="rfilm-cap"><b>Watch</b>The Playgroup Program</div>
+          </div>
         </div>
       <div class="svc-head">
         <span class="svc-eyebrow" data-reveal><i></i>03 &mdash; Weekday mornings</span>
@@ -623,7 +636,7 @@
       </div>
       <div class="svc-rest">
         <p class="lead" data-reveal>A gentle first step into school life &mdash; weekday mornings in small groups, with the same familiar faces each week. Welcome circle, active play, craft, snack and a story.</p>
-        <ul class="svc-points" data-reveal><li>Small groups</li><li>School-readiness</li><li>Weekly or termly</li></ul>
+        <ul class="svc-points" data-reveal><li>Small groups</li><li>School-readiness</li><li>8 free hours of play</li></ul>
         <div class="svc-cta" data-reveal>
           <a class="btn btn--gold" href="https://wa.me/971504738452?text=I%27d%20like%20to%20ask%20about%20the%20Playgroup%20Program." target="_blank" rel="noopener">Book now <svg class="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn--navy" href="programs.html">See the schedule</a>
