@@ -679,7 +679,8 @@
       var h = dubai.getHours() + dubai.getMinutes() / 60;
       var open = h >= 10 && h < 22;
       els.forEach(function (el) {
-        el.textContent = open ? 'Open now · until 10 PM' : 'Opens at 10 AM';
+        // the badge already says "Now open", so this half must not repeat it
+        el.textContent = open ? 'until 10 PM' : 'opens at 10 AM';
         el.classList.toggle('is-open', open);
       });
     }
