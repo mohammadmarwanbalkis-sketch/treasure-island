@@ -1502,7 +1502,7 @@ img.lazy.loaded{
   #quickstats{display:none}
 
   .hero{padding-bottom:2.2rem}
-  .hero .lead{font-size:1rem;line-height:1.55}
+  .hero .lead{font-size:.94rem;line-height:1.5}
   .hero-stats{gap:.9rem;margin-top:1.2rem;padding-top:1.2rem}
 
   /* location block: tighter rows, shorter map */
@@ -1817,7 +1817,7 @@ img.lazy.loaded{
 }
 .hero--center h1{font-size:clamp(2.1rem,7.4vw,4.2rem);line-height:1.03;letter-spacing:-.03em;max-width:16ch}
 .hero--center h1 em{font-style:normal;color:var(--gold-600)}
-.hero--center .lead{max-width:52ch;margin:0;color:var(--ink-70)}
+.hero--center .lead{max-width:46ch;margin:0;color:var(--ink-55);font-size:clamp(.92rem,3.7vw,1.12rem)}
 .hero--center .hero-badge{margin:0 auto}
 .btn-row--center{justify-content:center}
 .hero-strip{position:relative;z-index:2;padding-bottom:clamp(1.2rem,2.4vw,2rem)}
@@ -1885,7 +1885,9 @@ img.lazy.loaded{
 /* The headline is exactly two lines: "Where little explorers" /
    "play, create & celebrate". Size it to the longer line so neither wraps. */
 .hero--center h1{
-  font-size:clamp(1.5rem,6.15vw,4.2rem);
+  /* sized to fill the column: the longer line measures ~72% of the width at
+     this scale, so it grows as large as it can while staying on two lines */
+  font-size:clamp(1.62rem,8.4vw,4.2rem);
   max-width:none;text-wrap:nowrap;
 }
 .hero--center h1 .w{white-space:nowrap}
