@@ -81,7 +81,7 @@ replace the `data-wa="..."` attribute handling in `assets/js/app.js` →
 The WhatsApp number used by the forms is set per-form:
 
 ```html
-<form class="form" data-wa="97143827333" data-wa-title="*Birthday party enquiry*">
+<form class="form" data-wa="971504738452" data-wa-title="*Birthday party enquiry*">
 ```
 
 ---
