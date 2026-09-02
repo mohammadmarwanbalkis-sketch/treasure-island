@@ -187,12 +187,24 @@
       });
     }
 
-    // mark active nav item
+    // mark active nav item. A link carrying a hash (Boutique -> play.html#shop)
+    // lights up only when that hash is the one we are on, otherwise Play Zones
+    // and Boutique would both read as active on the same page.
     var path = location.pathname.split('/').pop() || 'index.html';
-    $$('.nav-links a, .drawer-links a').forEach(function (a) {
-      var href = (a.getAttribute('href') || '').split('#')[0];
-      if (href && href === path) a.classList.add('active');
+    var hash = location.hash;
+    var links = $$('.nav-links a, .drawer-links a');
+    var exact = links.filter(function (a) {
+      return hash && (a.getAttribute('href') || '') === path + hash;
     });
+    if (exact.length) {
+      exact.forEach(function (a) { a.classList.add('active'); });
+    } else {
+      links.forEach(function (a) {
+        var href = a.getAttribute('href') || '';
+        if (href.indexOf('#') > -1) return;
+        if (href && href === path) a.classList.add('active');
+      });
+    }
   }
 
   /* =========================================================
