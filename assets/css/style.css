@@ -1511,7 +1511,8 @@ img.lazy.loaded{
   .info-row{padding:.7rem 0}
   .info-row i{width:36px;height:36px}
   .info-row i svg{width:18px;height:18px}
-  .map-wrap{aspect-ratio:16/10;max-height:190px}
+  .map-wrap{aspect-ratio:16/10;max-height:none}
+  .map-wrap iframe{height:100%}
 
   /* welcome + faq breathing room */
   .checks{gap:.55rem;margin-top:1rem}
@@ -1815,7 +1816,7 @@ img.lazy.loaded{
   /* photo blocks: a slightly wider crop keeps each block a screen-and-a-bit */
   .svc-block:not(.svc-block--film) .svc-figure{aspect-ratio:16/10 !important}
   /* location block on a phone */
-  #visit .map-wrap{max-height:150px}
+  #visit .map-wrap{aspect-ratio:4/3;max-height:none}
   #visit .sec-head h2{font-size:1.5rem}
 }
 
