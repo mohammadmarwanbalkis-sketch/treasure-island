@@ -55,7 +55,7 @@ These are the only places with placeholder or assumed information.
 | **Domain** | `<link rel="canonical">` in every page, plus `robots.txt` and `sitemap.xml` | `https://www.treasureislanddubai.ae/` — a placeholder. Find and replace it with the real domain. |
 | **Party prices** | `birthdays.html`, the three `.pack-price` blocks | Currently "On request". Replace with real prices when confirmed, or leave as-is to drive WhatsApp enquiries. |
 | **Entry price** | `contact.html`, the "How much does entry cost?" FAQ | Says to message for current rates. |
-| **Phone numbers** | Every page | `+971 50 473 8452` (booking/WhatsApp) and `+971 4 382 7333` (landline). Both sourced from public listings — confirm they are the right ones to publish. |
+| **Phone number** | Every page | `+971 4 382 7333` is the single published number, used for every `tel:` link, every WhatsApp deep-link and the JSON-LD `telephone` field. The personal mobile was removed at the client's request. |
 | **Email** | Footer, "Email" social icon | `hello@treasureislanddubai.ae` — does not exist yet. |
 | **Programme days** | `events.html`, the "What's on" cards | Shows a standing weekly pattern (Mon / Weekends / Seasonal / School breaks). Swap in real dates as they are set. |
 | **Testimonials** | `index.html`, the `.quote` blocks | Written as realistic examples. Replace with real reviews before launch. |
@@ -81,7 +81,7 @@ replace the `data-wa="..."` attribute handling in `assets/js/app.js` →
 The WhatsApp number used by the forms is set per-form:
 
 ```html
-<form class="form" data-wa="971504738452" data-wa-title="*Birthday party enquiry*">
+<form class="form" data-wa="97143827333" data-wa-title="*Birthday party enquiry*">
 ```
 
 ---
