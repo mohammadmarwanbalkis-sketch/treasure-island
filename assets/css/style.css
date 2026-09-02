@@ -1833,9 +1833,6 @@ img.lazy.loaded{
   background:linear-gradient(transparent,rgba(0,38,57,.82));
   color:#fff;font-size:.72rem;font-weight:600;letter-spacing:.01em;
 }
-/* the brand lock-up sat too loose */
-.brand b,.brand span{line-height:1.12}
-.brand span{letter-spacing:.16em;margin-top:0}
 
 /* the location block reads centred like the rest of the page */
 #visit .contact-grid{text-align:center}
@@ -1864,3 +1861,30 @@ img.lazy.loaded{
   .strip-track{animation:none}
   .strip{overflow-x:auto;-webkit-overflow-scrolling:touch}
 }
+
+/* ---------- 43. BRAND LOCK-UP + TWO-LINE HEADLINE ---------- */
+/* "Treasure Island" over "DUBAI MALL": tighter leading, and the trailing
+   letter-space of the tracked line cancelled so the two edges line up. */
+.brand-txt{display:grid;gap:0;line-height:1;align-content:center}
+.brand-txt b{
+  font-family:var(--display);font-weight:600;font-size:1.02rem;color:var(--navy);
+  letter-spacing:-.015em;line-height:1.06;
+}
+.brand-txt span{
+  font-size:.585rem;letter-spacing:.145em;text-transform:uppercase;
+  color:var(--ink-35);font-weight:700;line-height:1.1;margin-top:1px;
+  margin-right:-.145em;          /* kill the trailing track so both lines end square */
+}
+@media(max-width:640px){
+  .brand-txt b{font-size:.95rem}
+  .brand-txt span{font-size:.545rem;letter-spacing:.13em;margin-right:-.13em}
+}
+
+/* The headline is exactly two lines: "Where little explorers" /
+   "play, create & celebrate". Size it to the longer line so neither wraps. */
+.hero--center h1{
+  font-size:clamp(1.5rem,6.15vw,4.2rem);
+  max-width:none;text-wrap:nowrap;
+}
+.hero--center h1 .w{white-space:nowrap}
+@media(min-width:900px){.hero--center h1{font-size:clamp(2.6rem,4.6vw,4.2rem)}}
