@@ -2036,3 +2036,40 @@ img.lazy.loaded{
 @media(min-width:1600px){
   :root{--shell:min(1440px,100% - (var(--gut) * 2))}
 }
+
+/* ---------- 47. BOUTIQUE SHOP GRID ---------- */
+.shop-grid{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:clamp(.7rem,2vw,1.35rem);margin-top:clamp(1.5rem,3vw,2.4rem);
+}
+@media(min-width:700px){.shop-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(min-width:1024px){.shop-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+
+.shop-card{
+  display:flex;flex-direction:column;background:#fff;
+  border-radius:var(--r-lg);overflow:hidden;
+  box-shadow:var(--sh-1);border:1px solid var(--line-2);
+  transition:transform .32s var(--e-out),box-shadow .32s var(--e-out);
+}
+.shop-card:hover{transform:translateY(-4px);box-shadow:var(--sh-2)}
+.shop-card figure{margin:0;aspect-ratio:1;background:var(--paper-2);overflow:hidden}
+/* product shots are square on white - contain, never crop the item */
+.shop-card img{width:100%;height:100%;object-fit:contain;display:block;padding:7%}
+
+.shop-body{display:flex;flex-direction:column;padding:clamp(.7rem,2vw,1rem);flex:1}
+.shop-name{
+  font-family:var(--display);font-weight:600;line-height:1.18;color:var(--navy);
+  font-size:clamp(.88rem,2.5vw,1rem);margin:0;
+}
+.shop-desc{
+  margin:.35rem 0 0;font-size:.775rem;line-height:1.45;color:var(--ink-55);flex:1;
+}
+.shop-foot{display:flex;align-items:baseline;gap:.4rem;margin-top:.75rem}
+.shop-price{font-weight:800;color:var(--navy);font-size:1.02rem;letter-spacing:-.01em}
+.shop-price small{font-size:.66em;font-weight:700;opacity:.62;margin-left:.1em}
+.shop-price--ask{font-size:.8rem;font-weight:700;color:var(--ink-55);letter-spacing:0}
+.shop-order{margin-top:.6rem;width:100%;justify-content:center;font-size:.8rem;padding:.6rem .8rem}
+.shop-note{
+  margin-top:clamp(1.1rem,2.4vw,1.6rem);text-align:center;
+  font-size:.85rem;color:var(--ink-55);
+}
