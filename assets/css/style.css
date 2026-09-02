@@ -1969,3 +1969,70 @@ img.lazy.loaded{
   76%{transform:translateY(5px);opacity:1}
 }
 @media(prefers-reduced-motion:reduce){.hero-cue svg{animation:none;opacity:.7}}
+
+/* ---------- 46. LAPTOP & DESKTOP DENSITY ----------
+   Everything below is gated at min-width:1024px, so phones and tablets keep
+   exactly the layout they have. The page was designed mobile-first and then
+   stretched, which left four separate pockets of dead space on a laptop:
+   an undersized hero photo, portrait videos capped at 260px inside a 560px
+   column, a location block forced into one centred column, and a full-width
+   FAQ of very thin rows. Each is addressed in place.                       */
+@media(min-width:1024px){
+
+  /* -- hero: the photo was 620px inside a 1280px shell -- */
+  .hero-show{max-width:860px}
+  .hero--center h1{font-size:clamp(2.9rem,4.9vw,4.6rem)}
+  .hero--center .lead{max-width:58ch;font-size:1.12rem}
+
+  /* -- service blocks: give the media real size and rebalance the columns -- */
+  .svc-inner{
+    grid-template-columns:minmax(0,.72fr) minmax(0,1fr);
+    /* column-gap only: the shorthand would reset the base row-gap:0 and open
+       a 58px hole between the heading and the paragraph */
+    column-gap:clamp(2rem,4vw,4rem);
+    row-gap:0;
+  }
+  .svc-block--rev .svc-inner{grid-template-columns:minmax(0,1fr) minmax(0,.72fr)}
+  .svc-media--film{width:min(100%,370px)}
+  .svc-block:not(.svc-block--film) .svc-figure{aspect-ratio:5/4}
+  .svc-body .lead,.svc-rest .lead{max-width:54ch}
+
+  /* -- location: back to two columns, map fills the full height of the row -- */
+  #visit .contact-grid{
+    grid-template-columns:1.02fr .98fr;
+    align-items:stretch;text-align:left;
+    gap:clamp(2rem,4vw,3.5rem);
+  }
+  #visit .sec-head,#visit .sec-head .lead{margin-inline:0}
+  #visit .info-card{max-width:none;margin-inline:0}
+  #visit .btn-row{justify-content:flex-start}
+  #visit .map-wrap{
+    max-width:none;margin:0;width:100%;
+    aspect-ratio:auto;height:100%;min-height:100%;
+  }
+  #visit .map-wrap iframe{height:100%;min-height:520px}
+
+  /* -- FAQ: heading and its button on the left, questions filling the right,
+        instead of a thin full-width stack of rows -- */
+  .faq--split .shell{
+    display:grid;grid-template-columns:minmax(0,.6fr) minmax(0,1fr);
+    grid-template-rows:auto 1fr;
+    column-gap:clamp(2.5rem,5vw,4.5rem);row-gap:0;align-items:start;
+  }
+  .faq--split .sec-head{grid-column:1;grid-row:1;text-align:left;margin:0;max-width:none}
+  .faq--split .sec-head .eyebrow{justify-content:flex-start}
+  .faq--split .sec-head .lead{margin-inline:0}
+  .faq--split .acc{grid-column:2;grid-row:1 / span 2;margin-top:0 !important;border-top:0}
+  .faq--split .acc-item:first-child{border-top:1px solid var(--line)}
+  .faq--split .acc-q{font-size:1.02rem;padding-block:1.15rem}
+  /* the button lives in a bare centred <p>, so it needs placing and unsetting */
+  .faq--split .shell > p{
+    grid-column:1;grid-row:2;align-self:start;
+    text-align:left !important;margin:1.6rem 0 0 !important;
+  }
+}
+
+/* on a large display the shell itself can afford to be wider */
+@media(min-width:1600px){
+  :root{--shell:min(1440px,100% - (var(--gut) * 2))}
+}
