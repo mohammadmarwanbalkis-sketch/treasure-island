@@ -1871,13 +1871,15 @@ img.lazy.loaded{
   letter-spacing:-.015em;line-height:1.06;
 }
 .brand-txt span{
-  font-size:.585rem;letter-spacing:.145em;text-transform:uppercase;
-  color:var(--ink-35);font-weight:700;line-height:1.1;margin-top:1px;
-  margin-right:-.145em;          /* kill the trailing track so both lines end square */
+  /* tracked so DUBAI MALL spans the same width as Treasure Island above it —
+     the trailing letter-space is cancelled so both lines end square */
+  font-size:.645rem;letter-spacing:.5em;text-transform:uppercase;
+  color:var(--ink-35);font-weight:700;line-height:1.1;margin-top:2px;
+  margin-right:-.5em;
 }
 @media(max-width:640px){
   .brand-txt b{font-size:.95rem}
-  .brand-txt span{font-size:.545rem;letter-spacing:.13em;margin-right:-.13em}
+  .brand-txt span{font-size:.6rem;letter-spacing:.5em;margin-right:-.5em}
 }
 
 /* The headline is exactly two lines: "Where little explorers" /
@@ -1888,3 +1890,43 @@ img.lazy.loaded{
 }
 .hero--center h1 .w{white-space:nowrap}
 @media(min-width:900px){.hero--center h1{font-size:clamp(2.6rem,4.6vw,4.2rem)}}
+
+/* ---------- 44. HERO SLIDESHOW ---------- */
+.hero-show{
+  position:relative;width:100%;max-width:620px;margin:clamp(.4rem,1.4vw,1rem) auto 0;
+  aspect-ratio:4/3;border-radius:var(--r-lg);overflow:hidden;
+  background:var(--paper-2);box-shadow:var(--sh-2);
+}
+@media(min-width:700px){.hero-show{aspect-ratio:16/10}}
+.hero-show figure{
+  position:absolute;inset:0;margin:0;opacity:0;
+  transition:opacity .9s var(--e-out);
+  pointer-events:none;
+}
+.hero-show figure.is-on{opacity:1;pointer-events:auto}
+.hero-show img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-show figure::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:42%;
+  background:linear-gradient(transparent,rgba(0,32,50,.72));
+}
+.hero-show figcaption{
+  position:absolute;left:clamp(.7rem,2.6vw,1.1rem);bottom:clamp(.6rem,2.2vw,.95rem);
+  z-index:2;color:#fff;font-weight:600;
+  font-size:clamp(.76rem,2.9vw,.95rem);letter-spacing:.005em;
+  text-shadow:0 1px 6px rgba(0,20,32,.5);
+}
+/* the logo hovers over the opening frame, top-left, and keeps its own
+   proportions — width is set, height stays auto so it can never stretch */
+.hero-show .hs-logo{
+  position:absolute;z-index:2;left:clamp(.7rem,3vw,1.15rem);top:clamp(.7rem,3vw,1.15rem);
+  width:clamp(64px,17%,104px);height:auto;
+  filter:drop-shadow(0 6px 18px rgba(0,20,32,.55));
+}
+.hero-show::after{   /* progress hairline */
+  content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;
+  background:linear-gradient(90deg,var(--gold),transparent);
+  opacity:.35;z-index:3;
+}
+@media (prefers-reduced-motion: reduce){
+  .hero-show figure{transition:none}
+}

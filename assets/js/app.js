@@ -754,13 +754,59 @@
     });
   }
 
+
+  /* =========================================================
+     22. HERO SLIDESHOW  (one frame at a time)
+     ========================================================= */
+  function heroShow() {
+    $$('[data-heroshow]').forEach(function (box) {
+      var slides = $$('figure', box);
+      if (slides.length < 2) return;
+      var i = 0, timer = null, visible = true;
+
+      function show(n) {
+        slides[i].classList.remove('is-on');
+        i = (n + slides.length) % slides.length;
+        slides[i].classList.add('is-on');
+        // load the next frame ahead of time so the change is never a blank
+        var nxt = slides[(i + 1) % slides.length].querySelector('img');
+        if (nxt && nxt.loading === 'lazy') { nxt.loading = 'eager'; }
+      }
+      function start() {
+        if (timer || REDUCED) return;
+        timer = setInterval(function () { if (visible) show(i + 1); }, 3600);
+      }
+      function stop() { clearInterval(timer); timer = null; }
+
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (es) {
+          es.forEach(function (e) { visible = e.isIntersecting; visible ? start() : stop(); });
+        }, { threshold: 0.2 }).observe(box);
+      } else { start(); }
+
+      document.addEventListener('visibilitychange', function () {
+        document.hidden ? stop() : start();
+      });
+
+      // a swipe moves it along on touch
+      var x0 = null;
+      box.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+      box.addEventListener('touchend', function (e) {
+        if (x0 === null) return;
+        var dx = e.changedTouches[0].clientX - x0;
+        if (Math.abs(dx) > 40) show(i + (dx < 0 ? 1 : -1));
+        x0 = null;
+      });
+    });
+  }
+
   /* =========================================================
      BOOT
      ========================================================= */
   function boot() {
     preloader(); marquee(); reveals(); nav(); parallax(); tilt(); magnetic();
     cursor(); counters(); pinned(); lazyImages(); gallery(); accordion();
-    dragScroll(); scrubZoom(); confettiSetup(); forms(); anchors(); year(); openNow(); royalFilm();
+    dragScroll(); scrubZoom(); confettiSetup(); forms(); anchors(); year(); openNow(); royalFilm(); heroShow();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
   else boot();
