@@ -207,6 +207,38 @@
     }
   }
 
+
+  /* =========================================================
+     BOUTIQUE RAIL  (arrow buttons + disabled state at the ends)
+     ========================================================= */
+  function shopRail() {
+    $$('[data-rail-track]').forEach(function (track) {
+      var head = track.closest('section');
+      if (!head) return;
+      var prev = head.querySelector('[data-rail="prev"]');
+      var next = head.querySelector('[data-rail="next"]');
+      if (!prev || !next) return;
+
+      function step() {
+        var card = track.querySelector('.shop-card');
+        if (!card) return track.clientWidth * 0.8;
+        var gap = parseFloat(getComputedStyle(track).columnGap || '0') || 0;
+        var per = Math.max(1, Math.floor(track.clientWidth / (card.offsetWidth + gap)) - 1);
+        return (card.offsetWidth + gap) * per;
+      }
+      function sync() {
+        var max = track.scrollWidth - track.clientWidth - 2;
+        prev.disabled = track.scrollLeft <= 2;
+        next.disabled = track.scrollLeft >= max;
+      }
+      prev.addEventListener('click', function () { track.scrollBy({ left: -step(), behavior: REDUCED ? 'auto' : 'smooth' }); });
+      next.addEventListener('click', function () { track.scrollBy({ left:  step(), behavior: REDUCED ? 'auto' : 'smooth' }); });
+      track.addEventListener('scroll', sync, { passive: true });
+      window.addEventListener('resize', sync);
+      sync();
+    });
+  }
+
   /* =========================================================
      4. PARALLAX  (data-px="speed")
      ========================================================= */
@@ -818,7 +850,7 @@
   function boot() {
     preloader(); marquee(); reveals(); nav(); parallax(); tilt(); magnetic();
     cursor(); counters(); pinned(); lazyImages(); gallery(); accordion();
-    dragScroll(); scrubZoom(); confettiSetup(); forms(); anchors(); year(); openNow(); royalFilm(); heroShow();
+    dragScroll(); scrubZoom(); confettiSetup(); forms(); anchors(); year(); openNow(); royalFilm(); heroShow(); shopRail();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
   else boot();

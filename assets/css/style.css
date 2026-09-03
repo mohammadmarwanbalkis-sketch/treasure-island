@@ -2073,3 +2073,42 @@ img.lazy.loaded{
   margin-top:clamp(1.1rem,2.4vw,1.6rem);text-align:center;
   font-size:.85rem;color:var(--ink-55);
 }
+
+/* ---------- 48. BOUTIQUE RAIL (landing page) ---------- */
+.rail-head{display:flex;align-items:flex-end;justify-content:space-between;gap:1.5rem}
+.rail-head .sec-head{max-width:52ch}
+
+.rail-nav{display:none;gap:.5rem;flex:none;padding-bottom:.25rem}
+@media(min-width:900px){.rail-nav{display:flex}}
+.rail-btn{
+  width:44px;height:44px;border-radius:50%;flex:none;
+  display:grid;place-items:center;cursor:pointer;
+  background:#fff;color:var(--navy);
+  border:1px solid var(--line-2);box-shadow:var(--sh-1);
+  transition:transform .25s var(--e-out),background .25s var(--e-out),opacity .25s var(--e-out);
+}
+.rail-btn svg{width:19px;height:19px}
+.rail-btn:hover{background:var(--gold);transform:translateY(-2px)}
+.rail-btn[disabled]{opacity:.32;pointer-events:none}
+
+/* the rail breaks the shell so cards can run to the screen edge, but the first
+   card still lines up with the heading above it */
+.rail-wrap{margin-top:clamp(1.3rem,2.8vw,2rem)}
+.shop-rail{
+  display:flex;gap:clamp(.7rem,1.6vw,1.1rem);
+  overflow-x:auto;overscroll-behavior-x:contain;
+  scroll-snap-type:x proximity;scroll-behavior:smooth;
+  padding:.5rem max(1.25rem,calc((100% - var(--shell)) / 2)) 1.4rem;
+  /* without this the snap target is the card edge, not the padded edge, so the
+     rail scrolls itself to 80px on load and the prev arrow never disables */
+  scroll-padding-inline:max(1.25rem,calc((100% - var(--shell)) / 2));
+  -webkit-overflow-scrolling:touch;scrollbar-width:none;
+}
+.shop-rail::-webkit-scrollbar{display:none}
+.shop-rail:focus-visible{outline:2px solid var(--gold-600);outline-offset:-4px;border-radius:var(--r-lg)}
+.shop-rail .shop-card{
+  flex:0 0 clamp(158px,44vw,236px);scroll-snap-align:start;
+}
+@media(prefers-reduced-motion:reduce){.shop-rail{scroll-behavior:auto}}
+
+.rail-foot{margin-top:.4rem;display:flex;justify-content:center}
