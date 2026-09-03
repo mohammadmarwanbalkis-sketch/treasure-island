@@ -2112,3 +2112,19 @@ img.lazy.loaded{
 @media(prefers-reduced-motion:reduce){.shop-rail{scroll-behavior:auto}}
 
 .rail-foot{margin-top:.4rem;display:flex;justify-content:center}
+
+/* "Ask for price" is now a link to WhatsApp, not a label */
+a.shop-price--ask{
+  display:inline-flex;align-items:center;gap:.32rem;
+  color:var(--navy);text-decoration:none;
+  border-bottom:1px dashed rgba(0,67,104,.35);
+  padding-bottom:1px;transition:color .25s var(--e-out),border-color .25s var(--e-out);
+}
+a.shop-price--ask::after{
+  content:"";width:5px;height:5px;flex:none;
+  border-top:1.6px solid currentColor;border-right:1.6px solid currentColor;
+  transform:rotate(45deg);opacity:.7;
+}
+a.shop-price--ask:hover,a.shop-price--ask:focus-visible{
+  color:var(--gold-600);border-bottom-color:var(--gold-600);
+}
